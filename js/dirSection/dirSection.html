@@ -1,0 +1,39 @@
+
+
+  <button class="delete-website-icon" ng-click="removeSection($index)" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    <h4>x</h4>
+  </button>
+
+  <input class="section-title" type="text" placeholder="Change Section Name">
+  <br>
+
+  <button class="add-website-icon" ng-click="visible = !visible">
+    <h4>+</h4>
+  </button> 
+  
+  <h5 class="add-website-text">Add New Website</h5>
+</div>
+      
+
+</div>      
+  <form ng-show="visible" ng-submit="newListItem()">
+    <input class="save-website" type="text" ng-model="siteName" ng-change="item.websites.$save(wbesite)" placeholder="Enter Website Name" required/>
+    <input class="save-website" type="text" ng-model="url" ng-change="item.websites.$save(wbesite)"placeholder="https://" required/>
+    <br/>
+    <button class="save-button" ng-click="visible = !visible" type="submit" ng-click="item.websites.$save(website)">Save</button>
+  </form>
+
+  <div ng-repeat="website in item.websites | filter:searchText">
+  <button class="edit-website-icon" ng-click="editing = !editing"><h4>-</h4></button>
+  <a class="website-text-url" ng-hide="editing" ng-href= "{{website.url}}" target="_blank">{{website.name}}</a>
+  <li> 
+    <form ng-show="editing" ng-submit="editing = false">
+      <h5 class="edit-text">Edit</h5>
+      <input class="save-website" type="text" ng-model="website.name" ng-change="item.websites.$save(wbesite)" placeholder="Website Name" required/>
+      <input class="save-website" type="text" ng-model="website.url"  ng-change="item.websites.$save(wbesite)" placeholder="https://" required/>
+      <br/>
+      <button class="save-button" type="submit" ng-click="item.websites.$save(website)">Save</button>
+      <button class="save-button" type="button" ng-click="item.websites.$remove(website)">Delete</button>
+   </form>
+  </li>
+</div>

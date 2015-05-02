@@ -1,0 +1,29 @@
+<div class="container" ng-controller="loginCtrl">
+
+  <div class="row login-row">
+    <div class="col-md-12">
+        <input ng-model="searchText" class="searchbar"type="text" placeholder="Search">
+    </div>
+  </div>
+  <div class="row content-section-row">
+    <div class="col-md-4 ceneter-con-in-sec">
+        <button class="new-section-button" ng-click= "createNewSection()">Create New Section<br><h2>+</h2></button>
+    </div>
+
+  <div class="col-md-4 scroll" ng-repeat="item in sections"> 
+    <div class="center-section">
+      <ul>
+        <dir-section></dir-section>
+      </ul>
+    </div>  
+  </div>
+
+  <div class="col-md-4 scoll">
+    <div class="center-section">
+      
+    </div>    
+  </div>
+
+
+
+</div> <!-- end of container  -->
